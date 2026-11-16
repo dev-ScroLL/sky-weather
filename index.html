@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Güncel hava durumu, saatlik ve 7 günlük tahmin.">
+  <title>Sky. · Hava durumu</title>
+  <link rel="stylesheet" href="style.css?v=7">
+  <script src="city-photo-catalog.js" defer></script>
+  <script src="city-photos.js?v=3" defer></script>
+  <script src="i18n.js?v=2" defer></script>
+  <script src="app.js?v=7" defer></script>
+</head>
+<body>
+  <header>
+    <div class="shell masthead">
+      <a class="brand" dir="ltr" href="./">Sky<span>.</span></a>
+      <form id="search" role="search">
+        <label class="sr" for="query" data-text="search">Şehir ara</label>
+        <input id="query" placeholder="Şehir ara" minlength="2" required autocomplete="off">
+        <button type="submit" data-text="submit">Ara</button>
+        <div id="results" hidden></div>
+      </form>
+      <button id="locate" type="button" data-text="locate">Konumumu kullan</button>
+      <div class="units" dir="ltr" role="group" aria-label="Sıcaklık birimi" data-label="units">
+        <button type="button" data-unit="C" aria-pressed="true">°C</button>
+        <button type="button" data-unit="F" aria-pressed="false">°F</button>
+      </div>
+      <select id="language" aria-label="Dil" data-label="language">
+        <option value="tr" lang="tr">Türkçe</option>
+        <option value="en" lang="en">English</option>
+        <option value="de" lang="de">Deutsch</option>
+        <option value="fr" lang="fr">Français</option>
+        <option value="es" lang="es">Español</option>
+        <option value="it" lang="it">Italiano</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="ar" lang="ar">العربية</option>
+      </select>
+    </div>
+  </header>
+  <main class="dashboard">
+    <p id="notice" role="status" hidden></p>
+    <section class="hero" id="current-weather" aria-label="Güncel hava durumu" data-label="current">
+      <img id="city-photo" alt="" decoding="async" referrerpolicy="no-referrer">
+      <div class="place">
+        <p id="date">Yerel tarih yükleniyor…</p>
+        <h1 id="city">İstanbul</h1>
+        <p id="country">Türkiye</p>
+
+      </div>
+      <div class="reading">
+        <div class="current"><strong id="temp">—°</strong><span id="symbol" aria-hidden="true">☁️</span></div>
+        <p id="condition">Hava durumu yükleniyor…</p>
+        <p id="range">↑ —° &nbsp; ↓ —°</p>
+      </div>
+      <p id="photo-credit" hidden><span data-text="photo">Fotoğraf</span> · <a id="photo-source" target="_blank" rel="noopener"></a> · <a id="photo-license" target="_blank" rel="noopener"></a></p>
+    </section>
+    <section class="details" aria-label="Bugünün detayları" data-label="details">
+      <dl class="stats">
+        <div><dt data-text="feels">Hissedilen</dt><dd id="feels">—</dd></div>
+        <div><dt data-text="wind">Rüzgâr</dt><dd id="wind">—</dd></div>
+        <div><dt data-text="humidity">Nem</dt><dd id="humidity">—</dd></div>
+        <div><dt data-text="rain">Yağış olasılığı</dt><dd id="rain">—</dd></div>
+      </dl>
+    </section>
+    <div class="forecasts">
+      <section class="hourly">
+        <div class="section-head"><h2 data-text="hourly">Saatlik tahmin</h2><span data-text="hours">24 saat</span></div>
+        <div id="hours" class="hours" tabindex="0" aria-label="Saatlik tahmin listesi" data-label="hoursLabel"></div>
+      </section>
+      <section class="weekly">
+        <div class="section-head"><h2 data-text="weekly">7 günlük tahmin</h2></div>
+        <div id="days"></div>
+      </section>
+    </div>
+    <footer><span><span data-text="data">Hava durumu verileri</span> · <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></span><span><span data-text="photo">Fotoğraf</span> · <a href="https://commons.wikimedia.org/wiki/File:The_sky_is_beautiful_with_cumulus_clouds.jpg" target="_blank" rel="noopener">Nana Hemaa N.A</a></span></footer>
+  </main>
+</body>
+</html>
